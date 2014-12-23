@@ -75,6 +75,37 @@ Watch a single file for changes and auto compile a css file from the changes. *e
 $ recess input.less:ouput.css --watch
 ```
 
+Telling recess to ignore lint on a block of code.
+
+```CSS
+.abc {
+  position: absolute;
+  top: 0;
+  text-align: center;
+}
+
+/* recess ignore:start */
+.def {
+  color: #fafafa;
+  display: inline-block;
+  position: fixed;
+
+  #gh { text-transform: uppercase; }
+}
+
+@import "library.less";
+
+/* recess ignore:end */
+
+.ijk {
+  position: relative;
+  bottom: 0;
+  text-align: right;
+}
+```
+
+All code in between `ignore:start` and `ignore:end` won't be passed to Recess linter. Usefull when you import Less files from framework such as Twitter Bootstrap.
+
 PROGRAMMATIC API
 ----------------
 
